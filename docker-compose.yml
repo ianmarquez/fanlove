@@ -31,7 +31,9 @@ services:
       - 8080:80
     restart: always
   server:
-    build: ./server
+    build:
+      context: ./server
+      dockerfile: DockerFile
     depends_on:
       - mysql
     expose:
@@ -47,7 +49,9 @@ services:
       - mysql
     command: npm start
   client:
-    build: ./client
+    build: 
+      context: ./client
+      dockerfile: DockerFile
     environment:
       <<: *common-variables
       NODE_PATH: src
