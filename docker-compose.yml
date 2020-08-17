@@ -49,6 +49,7 @@ services:
       - mysql
     command: npm start
   client:
+    stdin_open: true 
     build: 
       context: ./client
       dockerfile: DockerFile
@@ -64,3 +65,4 @@ services:
     links:
       - server
     command: npm start
+    

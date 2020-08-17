@@ -7,7 +7,7 @@ export class SampleComponent extends React.Component {
   }
 
   private async callserver(): Promise<any> {
-    const res = await axios.get('http://localhost:8000/test', {
+    const res = await axios.get('http://localhost:8000/user/get', {
       params: {
         table: 'sample'
       }
@@ -16,10 +16,13 @@ export class SampleComponent extends React.Component {
     console.log(res.data);
   }
 
+  componentDidMount() {
+    {this.callserver()}
+  }
+
   render(): React.ReactNode {
     return <div>
       This is a sample component.
-      {this.callserver()}
     </div>
   }
 }
