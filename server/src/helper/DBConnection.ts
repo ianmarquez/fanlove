@@ -21,7 +21,7 @@ export default class DBConnection {
   } 
 
   static getInstance(): DBConnection {
-    if(!DBConnection.instance) {
+    if(!DBConnection.instance) { 
       DBConnection.instance = new DBConnection()
     }
     return DBConnection.instance;

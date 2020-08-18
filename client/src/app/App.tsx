@@ -1,6 +1,14 @@
 import React from "react";
-import { SampleComponent } from "../components";
+import { Layout, PageHeader, Button } from 'antd';
+import User from "../components/User";
 
-const App = () => <SampleComponent />;
+import './App.css';
 
-export default App;
+const { Header, Content, Footer } = Layout;
+
+export default () => <Layout className="content-body">
+  <Content>
+    <User/>
+  </Content>
+  <Footer style={{ textAlign: 'center' }}>Fanlove technical exam 2020</Footer>
+</Layout>

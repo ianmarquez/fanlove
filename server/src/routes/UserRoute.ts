@@ -5,7 +5,7 @@ const router = Router();
 
 const conn = DBConnection.getInstance().getConnection();
 
-router.get('/get/:id', async (req: Request, res: Response): Promise<void> => {
+router.get('/getById/:id', async (req: Request, res: Response): Promise<void> => {
   let status = 200;
   let response = {};
   try {
@@ -31,7 +31,7 @@ router.get('/get/:id', async (req: Request, res: Response): Promise<void> => {
   res.status(status).json(response);
 });
 
-router.get('/get', async (req: Request, res: Response): Promise<void> => {
+router.get('/all', async (req: Request, res: Response): Promise<void> => {
   try {
     const dbRes = await conn('user');
     res.send(dbRes);
@@ -40,7 +40,7 @@ router.get('/get', async (req: Request, res: Response): Promise<void> => {
   }
 });
 
-router.post('/', async (req: Request, res: Response): Promise<void> => {
+router.post('/add', async (req: Request, res: Response): Promise<void> => {
   try {
     const { firstName, lastName } = req.body;
     if (!firstName || !lastName) {
